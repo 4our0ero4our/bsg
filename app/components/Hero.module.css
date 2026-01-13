@@ -1,0 +1,514 @@
+.heroSection {
+  width: 100%;
+  min-height: 100vh;
+  /* It can be taller now */
+  background-color: #000000;
+  position: relative;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll only */
+}
+
+/* 
+  Main Grid Container
+  Columns: 3 columns. 
+  Rows: Defined by staggered content.
+  Row 1: Nav (Short)
+  Row 2: Offset (Difference between Nav and Spacer)
+  Row 3: Orange Box / Main Content Height
+  Row 4: Big Text
+  Row 5: Footer
+*/
+.gridContainer {
+  display: grid;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  /* Staggered Rows Approach */
+  grid-template-rows: 140px 140px minmax(350px, auto) auto auto;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* --- Row 1 / 2 (Top Area) --- */
+
+/* Col 1: Navbar Cell - Only Row 1 */
+.cellTopLeft {
+  grid-column: 1;
+  grid-row: 1;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Col 2: Black Spacer - Spans Row 1 + 2 (Taller) */
+.cellTopMid {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  background-color: #000000;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Col 3: Student Image - Spans Row 1 + 2 (Taller) */
+.cellTopRight {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  height: 100%;
+  width: 100%;
+  /* Fill the grid cell */
+  /* padding-right: 3rem; */
+  /* Add padding on right so image doesn't touch edge - button area */
+}
+
+.studentImageContainer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.studentImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* --- Row 2 / 3 (Middle Area) --- */
+
+/* Col 1: Intro Text */
+.cellMiddleLeft {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.textVStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.headlineSmall {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ff5722;
+  /* Highlight color for "Who We Are" */
+  letter-spacing: 1px;
+}
+
+.textBlockMain {
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  max-width: 480px;
+}
+
+.textBlockSub {
+  color: #888888;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 480px;
+}
+
+.startButton {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  width: fit-content;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  background-color: #f0f0f0;
+}
+
+/* Col 2: Orange Box */
+.cellMiddleMid {
+  grid-column: 2;
+  grid-row: 3;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  aspect-ratio: 1 / 1;
+}
+
+.orangeBox {
+  width: 100%;
+  height: 100%;
+  background-color: #ff5722;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoText {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.orangeTextContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.orangeHelpers {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.orangeSubtext {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Col 3: Social Proof (Middle Right) */
+.cellMiddleRight {
+  grid-column: 3;
+  grid-row: 3;
+  background-color: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.socialProofText {
+  color: #cccccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.highlightText {
+  color: #ff5722;
+  font-weight: 600;
+  display: block;
+  /* Force new line if needed logic is handled by <br> already */
+  margin-top: 0.25rem;
+}
+
+/* --- Row 4 (Big Text) --- */
+.cellBottomBigText {
+  grid-column: 1 / span 2;
+  grid-row: 4;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 3rem;
+  overflow: hidden;
+  height: 220px;
+}
+
+.brandContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.largeLogo {
+  font-size: 6rem;
+  /* Adjusted for "Brainstorm Group" length */
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brandSubline {
+  color: #888888;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.cellBottomRight {
+  grid-column: 3;
+  grid-row: 4;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 220px;
+}
+
+.statsContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.statsText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  padding-left: 2rem;
+}
+
+.statNumber {
+  color: #ffffff;
+  font-size: 2.5rem;
+  /* Adjusted for longer number */
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: #aaaaaa;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.graduatesImage {
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.graduatesImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Row 5: Footer --- */
+.cellFooter {
+  grid-column: 1 / -1;
+  grid-row: 5;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.footerLeft {
+  padding-left: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.enrolledContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.profileIcons {
+  display: flex;
+}
+
+.profileIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #555;
+  border: 3px solid #000;
+  margin-left: -14px;
+  background-image: url('/hero-featured.jpg');
+  background-size: cover;
+}
+
+.profileIcon:first-child {
+  margin-left: 0;
+}
+
+.enrolledText {
+  color: #aaaaaa;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.footerMid {
+  display: flex;
+  justify-content: center;
+}
+
+.progressContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.progressLabel {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.progressBar {
+  width: 300px;
+  height: 2px;
+  background-color: #333;
+  position: relative;
+}
+
+.progressDot {
+  width: 10px;
+  height: 10px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footerRight {
+  padding-right: 3rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.quoteText {
+  color: #888;
+  text-align: right;
+  max-width: 350px;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+
+  /* Scale down fonts slightly instead of breaking layout */
+  .largeLogo {
+    font-size: 4rem;
+  }
+
+  .orangeHelpers {
+    font-size: 1.5rem;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  /* Reduce padding to fit tighter screens */
+  .cellMiddleLeft,
+  .cellBottomBigText,
+  .cellFooter,
+  .cellBottomRight {
+    padding: 1.5rem;
+  }
+
+  .footerLeft {
+    padding-left: 1.5rem;
+  }
+
+  .footerRight {
+    padding-right: 1.5rem;
+  }
+
+  /* Allow rows to shrink more if needed */
+  .gridContainer {
+    grid-template-rows: minmax(140px, auto) minmax(300px, auto) auto auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .gridContainer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .cellTopLeft,
+  .cellTopMid,
+  .cellTopRight,
+  .cellMiddleLeft,
+  .cellMiddleMid,
+  .cellMiddleRight,
+  .cellBottomBigText,
+  .cellBottomRight,
+  .cellFooter {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .cellTopMid {
+    display: none;
+    /* Hide empty black cells on mobile */
+  }
+
+  .cellMiddleRight {
+    display: none;
+  }
+
+  .cellTopRight {
+    height: 350px;
+  }
+
+  .cellMiddleMid {
+    aspect-ratio: auto;
+    min-height: 350px;
+  }
+
+  .largeLogo {
+    font-size: 3rem;
+    padding: 2rem 0;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .cellFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: flex-start;
+    padding: 3rem 1.5rem;
+  }
+
+  .footerLeft,
+  .footerMid,
+  .footerRight {
+    padding: 0;
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .quoteText {
+    text-align: left;
+  }
+}
