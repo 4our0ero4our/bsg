@@ -29,6 +29,7 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
+        initial={{ y: -100 }}
         variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
@@ -72,28 +73,39 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={{
+                hidden: { opacity: 0, scale: 0.95 },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+                },
+                exit: { opacity: 0 }
+              }}
               className={styles.mobileDrawer}
             >
               <div className={styles.mobileContent}>
                 {navLinks.map((link) => (
-                  <Link
+                  <motion.div
                     key={link.name}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={styles.mobileItemHeader}
+                    variants={{
+                      hidden: { opacity: 0, y: 40 },
+                      visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
+                    }}
+                    style={{ width: '100%' }}
                   >
-                    {link.name}
-                  </Link>
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={link.name === "Get Involved" ? styles.mobileCtaBtn : styles.mobileItemHeader}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 ))}
-                <div style={{ marginTop: '1rem' }}>
-                  <Link href="/contact" className={styles.ctaBtn} style={{ display: 'block', textAlign: 'center' }}>
-                    Let's Talk
-                  </Link>
-                </div>
               </div>
             </motion.div>
           </>

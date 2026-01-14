@@ -47,12 +47,14 @@
 }
 
 .navLink {
-  font-size: 0.95rem;
+  font-family: var(--font-montserrat);
+  font-size: 0.85rem;
   font-weight: 500;
   color: #ffffff;
   text-transform: capitalize;
   transition: color 0.2s;
   position: relative;
+  white-space: nowrap;
 }
 
 .navLink:hover {
@@ -70,13 +72,14 @@
 
 .ctaBtn {
   display: none;
+  font-family: var(--font-montserrat);
   background-color: transparent;
   color: #ffffff;
   padding: 0.6rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   transition: border-color 0.2s, color 0.2s;
   letter-spacing: 0.5px;
 }
@@ -164,11 +167,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  /* Larger touch target */
   font-weight: 500;
   color: #ffffff;
   width: 100%;
+  padding: 0.5rem 0;
   background: none;
   border: none;
   text-align: left;
+  transition: color 0.2s, transform 0.2s;
+  font-family: var(--font-montserrat);
+}
+
+.mobileItemHeader:hover {
+  color: #ff5722;
+  transform: translateX(5px);
+  /* Animation on hover */
+}
+
+.mobileCtaBtn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #ff5722;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 4px;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.mobileCtaBtn:hover {
+  transform: translateY(-2px);
+  background-color: #e64a19;
 }

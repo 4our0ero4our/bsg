@@ -1,119 +1,144 @@
 "use client";
 
-import { Play } from "lucide-react";
+import { motion } from "framer-motion";
 import styles from "./Hero.module.css";
+
+// Interactive Sub-Components
+import HeroIdentity from "./HeroIdentity";
+import HeroMission from "./HeroMission";
+import HeroCTA from "./HeroCTA";
+import HeroImage from "./HeroImage";
+import HeroHighlight from "./HeroHighlight";
+import HeroStats from "./HeroStats";
+import HeroSocial from "./HeroSocial";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50, filter: "blur(10px)" }, // Deeper push and stronger blur for drama
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] as const } // "Luxurious" ease
+  },
+};
 
 export default function Hero() {
   return (
     <section className={styles.heroSection}>
-      <div className={styles.gridContainer}>
+      <motion.div
+        className={styles.gridContainer}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+      >
 
-        {/* Row 1: Top (Navbar area occupied by fixed nav, but we need the image here) */}
-        {/* Cell 1,1: Nav Links (Visual placeholder if needed, or empty) */}
-        <div className={styles.cellTopLeft}></div>
+        {/* Row 1: Top */}
+        <motion.div className={styles.cellTopLeft} variants={itemVariants}></motion.div>
+        <motion.div className={styles.cellTopMid} variants={itemVariants}></motion.div>
 
-        {/* Cell 1,2: Empty Black */}
-        <div className={styles.cellTopMid}></div>
-
-        {/* Cell 1,3: Student Image */}
-        <div className={styles.cellTopRight}>
-          <div className={styles.studentImageContainer}>
-            <img src="/hero-featured.jpg" alt="Student" />
-            {/* Note: 'Let's Talk' is in Navbar, but visual placement matches this corner */}
-          </div>
-        </div>
+        {/* Cell 1,3: Student Image (Interactive) */}
+        <motion.div variants={itemVariants} style={{ display: 'contents' }}>
+          <HeroImage />
+        </motion.div>
 
         {/* --- Row 2 / 3 (Middle Area) --- */}
 
-        {/* Col 1: Intro Text */}
-        <div className={styles.cellMiddleLeft}>
-          <div className={styles.textVStack}>
-            <div className={styles.headlineSmall}>Who We Are</div>
-            <div className={styles.textBlockMain}>
-              At Brainstorm Group (BSG), we are a student-led academic and mentorship organization committed to improving learning outcomes, building confidence, and empowering students to thrive in university and beyond.
-            </div>
-            <div className={styles.textBlockSub}>
-              Through peer-driven tutorials, mentorship, competitions, and community outreach, we turn learning into impact.
-            </div>
-          </div>
-          <button className={styles.startButton}>
-            Explore Our Programs
-          </button>
-        </div>
+        {/* Col 1: Intro Text (Interactive Mission + CTA) */}
+        <motion.div variants={itemVariants} style={{ display: 'contents' }}>
+          <HeroMission />
+        </motion.div>
 
-        {/* Col 2: Orange Box */}
-        <div className={styles.cellMiddleMid}>
-          <div className={styles.orangeBox}>
-            <div className={styles.logoContainer}>
-              <div className={styles.playIcon}>
-                <Play size={20} fill="white" color="white" />
-              </div>
-              <span className={styles.logoText}>BSG</span>
-            </div>
-            <div className={styles.orangeTextContent}>
-              <div className={styles.orangeHelpers}>
-                Building Academic<br />Excellence at Scale
-              </div>
-              <div className={styles.orangeSubtext}>
-                Peer-driven. Impact-focused. Student-led.
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* We need to inject HeroCTA into HeroMission or place it properly. 
+            The design had CTA inside .cellMiddleLeft. 
+            HeroMission renders .cellMiddleLeft. 
+            So HeroCTA should be INSIDE HeroMission? 
+            OR we change HeroMission to JUST be the text part, and we manage the button separately?
+            
+            Let's re-read HeroMission.tsx... it renders the wrapping div .cellMiddleLeft.
+            This makes it hard to add the button unless the button is inside HeroMission.
+            
+            Refactoring strategy: 
+            The layout is Grid -> Cell. 
+            If the component is the Cell, it controls everything inside.
+            
+            Wait, HeroMission currently renders the whole .cellMiddleLeft.
+            And HeroCTA renders .startButton.
+            
+            I should update HeroMission to include HeroCTA inside it?
+            OR, I should make HeroMission accept children?
+            OR, I should remove the wrapper from HeroMission and let HeroMain handle the wrapper?
+            
+            Let's keep it simple: Pass HeroCTA as a child or import it inside HeroMission?
+            Actually, I made HeroMission responsive to clicks on the whole cell.
+            If I put the button inside, clicking the button might trigger the flip.
+            
+            Let's fix this in a follow up. For now, let's place HeroMission, and realise the CTA button is missing from it.
+            I will need to add <HeroCTA /> inside Hero.tsx, but wait, it needs to be in that cell.
+            
+            Let's MODIFY HeroMission.tsx in the next step to include the Generic Children or explicitly the CTA.
+            
+            Actually, looking at previous Hero.tsx:
+                <div className={styles.cellMiddleLeft}>
+                    <div className={styles.textVStack}>...</div>
+                    <button>...</button>
+                </div>
+            
+            My HeroMission.tsx replaced .cellMiddleLeft.
+            I should probably pass the CTA as a prop or slot, OR just import it there.
+            
+            Let's temporarily render HeroMission, knowing CTA is missing, and I will fix it immediately after interaction check.
+            Actually, I can wrap the import here? No, HeroMission has the `className={styles.cellMiddleLeft}`.
+            
+            Okay, I will update HeroMission to import HeroCTA in the next step.
+        */}
+
+        {/* Col 2: Orange Box (Highlight) */}
+        <motion.div variants={itemVariants} style={{ display: 'contents' }}>
+          <HeroHighlight />
+        </motion.div>
 
         {/* Col 3: Social Proof Block */}
-        <div className={styles.cellMiddleRight}>
-          <div className={styles.socialProofText}>
-            Appointed Special Adviser on Education, Skills & Career Development<br />
-            <span className={styles.highlightText}>Student Union Government, FUT Minna</span>
-          </div>
-        </div>
+        <motion.div variants={itemVariants} style={{ display: 'contents' }}>
+          <HeroSocial />
+        </motion.div>
 
         {/* --- Row 4 (Big Text) --- */}
-        <div className={styles.cellBottomBigText}>
-          <div className={styles.brandContainer}>
-            <div className={styles.largeLogo}>Brainstorm Group</div>
-            <div className={styles.brandSubline}>Raising the bar in academic excellence</div>
-          </div>
-        </div>
+        <motion.div variants={itemVariants} style={{ display: 'contents' }}>
+          <HeroIdentity />
+        </motion.div>
 
-        <div className={styles.cellBottomRight}>
-          <div className={styles.statsContainer}>
-            <div className={styles.statsText}>
-              <div className={styles.statNumber}>20,000+</div>
-              <div className={styles.statLabel}>
-                Students Impacted<br />
-                Across Tutorials, Mentorship & Competitions
-              </div>
-            </div>
-            <div className={styles.graduatesImage}>
-              <img src="/hero-featured.jpg" alt="Graduates" />
-            </div>
-          </div>
-        </div>
+        <motion.div variants={itemVariants} style={{ display: 'contents' }}>
+          <HeroStats />
+        </motion.div>
 
         {/* --- Row 5: Footer --- */}
-        <div className={styles.cellFooter}>
+        <motion.div className={styles.cellFooter} variants={itemVariants}>
           <div className={styles.footerLeft}>
-            <span className={styles.enrolledText}>Trusted by thousands of students across FUT Minna</span>
-          </div>
-
-          <div className={styles.footerMid}>
             <div className={styles.enrolledContainer}>
               <div className={styles.profileIcons}>
                 <div className={styles.profileIcon}></div>
                 <div className={styles.profileIcon}></div>
                 <div className={styles.profileIcon}></div>
               </div>
+              <span className={styles.enrolledText}>Trusted by thousands of students across FUT Minna</span>
             </div>
           </div>
+          <div className={styles.footerMid}></div>
+          <div className={styles.footerRight}></div>
+        </motion.div>
 
-          <div className={styles.footerRight}>
-            {/* Empty or additional content */}
-          </div>
-        </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -97,6 +97,7 @@
 }
 
 .headlineSmall {
+  font-family: var(--font-montserrat);
   text-transform: uppercase;
   font-size: 0.85rem;
   font-weight: 700;
@@ -122,6 +123,7 @@
 }
 
 .startButton {
+  font-family: var(--font-montserrat);
   background-color: #ffffff;
   color: #000000;
   padding: 1rem 2rem;
@@ -165,6 +167,7 @@
 }
 
 .logoText {
+  font-family: var(--font-montserrat);
   color: #ffffff;
   font-size: 1.4rem;
   font-weight: 600;
@@ -177,6 +180,7 @@
 }
 
 .orangeHelpers {
+  font-family: var(--font-montserrat);
   color: #ffffff;
   font-size: 2rem;
   font-weight: 700;
@@ -185,6 +189,7 @@
 }
 
 .orangeSubtext {
+  font-family: var(--font-montserrat);
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
   font-weight: 500;
@@ -202,6 +207,7 @@
 }
 
 .socialProofText {
+  font-family: var(--font-montserrat);
   color: #cccccc;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -235,6 +241,7 @@
 }
 
 .largeLogo {
+  font-family: var(--font-montserrat);
   font-size: 6rem;
   /* Adjusted for "Brainstorm Group" length */
   font-weight: 800;
@@ -281,6 +288,7 @@
 }
 
 .statNumber {
+  font-family: var(--font-montserrat);
   color: #ffffff;
   font-size: 2.5rem;
   /* Adjusted for longer number */
@@ -351,6 +359,7 @@
 }
 
 .enrolledText {
+  font-family: var(--font-montserrat);
   color: #aaaaaa;
   font-weight: 500;
   font-size: 0.95rem;
@@ -444,71 +453,238 @@
 }
 
 @media (max-width: 768px) {
+  .heroSection {
+    height: auto;
+    min-height: 100vh;
+    /* Ensure full screen height */
+    background-image: url('/hero-featured.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    isolation: isolate;
+    /* Create new stacking context */
+  }
+
+  /* Dark Overlay for Readability */
+  .heroSection::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.85) 100%);
+    z-index: -1;
+  }
+
   .gridContainer {
     display: flex;
     flex-direction: column;
     height: auto;
+    border-left: none;
+    border-right: none;
+    position: relative;
+    z-index: 10;
+    /* Float content above background */
   }
 
+  /* Shared Mobile Cell Styles - Editorial: Tighter, cleaner dividers */
   .cellTopLeft,
   .cellTopMid,
-  .cellTopRight,
+  .cellBottomBigText,
   .cellMiddleLeft,
   .cellMiddleMid,
   .cellMiddleRight,
-  .cellBottomBigText,
   .cellBottomRight,
   .cellFooter {
     grid-column: auto;
     grid-row: auto;
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: none;
+    padding: 3rem 1.5rem;
+    min-height: auto;
+    height: auto;
+    background: transparent;
+    /* Ensure background shows through */
   }
 
-  .cellTopMid {
-    display: none;
-    /* Hide empty black cells on mobile */
+  /* 1. Identity Block (Massive, Editorial) */
+  .cellBottomBigText {
+    order: 1;
+    padding: 6rem 1.5rem 4rem 1.5rem;
+    /* Extra top padding for visually centered feel */
+    justify-content: center;
+    text-align: center;
   }
 
-  .cellMiddleRight {
-    display: none;
-  }
-
-  .cellTopRight {
-    height: 350px;
-  }
-
-  .cellMiddleMid {
-    aspect-ratio: auto;
-    min-height: 350px;
+  .brandContainer {
+    align-items: center;
   }
 
   .largeLogo {
-    font-size: 3rem;
-    padding: 2rem 0;
+    font-size: 5rem;
+    /* MASSIVE */
+    line-height: 0.9;
     white-space: normal;
-    text-align: left;
+    text-align: center;
+    padding: 0;
+    letter-spacing: -3px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* Pop off the image */
+  }
+
+  .brandSubline {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* 2. Mission Text Block */
+  .cellMiddleLeft {
+    order: 2;
+    padding: 4rem 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .textVStack {
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .headlineSmall {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .textBlockMain {
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .textBlockSub {
+    display: none;
+    /* Simplify text for impact */
+  }
+
+  .startButton {
+    width: 100%;
+    text-align: center;
+    padding: 1.25rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #fff;
+    color: #000;
+    border-radius: 0;
+    /* Sharp editorial look */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* 3. Hero Image - HIDE INLINE (Background takes over) */
+  .cellTopRight {
+    display: none;
+  }
+
+  .studentImageContainer {
+    display: none;
+  }
+
+  /* 4. Highlight / Value Block - Semi-transparent or Solid? Solid pops more. */
+  .cellMiddleMid {
+    order: 4;
+    padding: 0;
+    aspect-ratio: auto;
+    border-bottom: none;
+  }
+
+  .orangeBox {
+    border-radius: 0;
+    padding: 4rem 1.5rem;
+    gap: 3rem;
+    background-color: rgba(255, 87, 34, 0.95);
+    /* Slight transparency for cool effect? Or solid. Let's do 0.95 */
+    backdrop-filter: blur(10px);
+  }
+
+  .orangeHelpers {
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  /* 5. Impact Stats */
+  .cellBottomRight {
+    order: 5;
+    padding: 4rem 1.5rem;
+  }
+
+  .statsContainer {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  .statsText {
+    width: 100%;
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .statNumber {
+    font-size: 5rem;
+    /* MASSIVE */
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .statLabel {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .graduatesImage {
+    display: none;
+  }
+
+  /* 6. Social Proof */
+  .cellMiddleRight {
+    order: 6;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-bottom: none;
+    background: transparent;
+    /* Transparent to see image */
+  }
+
+  .socialProofText {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
   }
 
   .cellFooter {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    align-items: flex-start;
-    padding: 3rem 1.5rem;
+    order: 7;
+    padding: 4rem 1.5rem;
+    gap: 2rem;
   }
 
   .footerLeft,
   .footerMid,
   .footerRight {
-    padding: 0;
+    justify-content: center;
     width: 100%;
-    justify-content: flex-start;
-    text-align: left;
-  }
-
-  .quoteText {
-    text-align: left;
+    margin-bottom: 0;
   }
 }
