@@ -5,51 +5,73 @@ import { useState } from "react";
 import styles from "./Hero.module.css";
 
 export default function HeroIdentity() {
-    const [isFlipped, setIsFlipped] = useState(false);
+    const [isActive, setIsActive] = useState(false);
 
+    // Mobile Tap Logic: 1st tap reveals, 2nd tap interacts (if needed, otherwise just toggle)
     const handleInteraction = () => {
-        setIsFlipped(!isFlipped);
+        setIsActive(!isActive);
     };
 
     return (
         <div
             className={styles.cellBottomBigText}
-            onMouseEnter={() => setIsFlipped(true)}
-            onMouseLeave={() => setIsFlipped(false)}
+            onMouseEnter={() => setIsActive(true)}
+            onMouseLeave={() => setIsActive(false)}
             onClick={handleInteraction}
-            style={{ perspective: "1000px", cursor: "pointer" }}
+            style={{ cursor: "pointer", position: "relative", overflow: "hidden" }}
         >
             <motion.div
                 className={styles.brandContainer}
-                initial={false}
-                animate={{ rotateX: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                style={{ transformStyle: "preserve-3d", position: "relative", width: "100%", height: "100%" }}
+                animate={{
+                    rotateX: isActive ? 15 : 0, // Subtle 3D Tilt instead of Flip
+                    rotateY: isActive ? 5 : 0,  // Subtle 3D Tilt
+                    scale: isActive ? 0.98 : 1
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    position: "relative",
+                    transformStyle: "preserve-3d",
+                    perspective: "1000px"
+                }}
             >
-                {/* Front */}
-                <div style={{ backfaceVisibility: "hidden", position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                    <div className={styles.largeLogo}>Brainstorm Group</div>
-                    <div className={styles.brandSubline}>Raising the bar in academic excellence</div>
-                </div>
-
-                {/* Back */}
-                <div
+                {/* Front Content (Standard) */}
+                <motion.div
+                    animate={{ opacity: isActive ? 0 : 1, y: isActive ? -20 : 0 }}
+                    transition={{ duration: 0.4 }}
                     style={{
-                        backfaceVisibility: "hidden",
                         position: "absolute",
                         inset: 0,
-                        backgroundColor: "#111",
-                        transform: "rotateX(180deg)",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",
-                        alignItems: "center",
-                        padding: "2rem"
+                        alignItems: "center"
                     }}
                 >
-                    <h3 style={{ color: "white", fontSize: "1.5rem", marginBottom: "0.5rem" }}>Founded by Students.</h3>
-                    <p style={{ color: "#888", textAlign: "center" }}>Built for impact. Driven by excellence.</p>
-                </div>
+                    <div className={styles.largeLogo}>Brainstorm Group</div>
+                    <div className={styles.brandSubline}>Raising the bar in academic excellence</div>
+                </motion.div>
+
+                {/* Back Content (Refined Charcoal Card) */}
+                <motion.div
+                    className={styles.backIdentity}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isActive ? 1 : 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                    <div className={styles.backIdentityDivider}></div>
+                    <motion.div
+                        className={styles.backIdentityText}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        Founded by students.<br />
+                        Built for impact.<br />
+                        Driven by excellence.
+                    </motion.div>
+                </motion.div>
             </motion.div>
         </div>
     );

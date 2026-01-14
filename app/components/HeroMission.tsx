@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { BookOpen, Users, Trophy } from "lucide-react";
 import styles from "./Hero.module.css";
 import HeroCTA from "./HeroCTA";
 
@@ -19,7 +20,7 @@ export default function HeroMission() {
             <motion.div
                 style={{ transformStyle: "preserve-3d", width: "100%", height: "100%", position: "relative" }}
                 animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
             >
                 {/* Front */}
                 <div style={{ backfaceVisibility: "hidden", position: "absolute", inset: 0, display: 'flex', flexDirection: 'column', padding: 'inherit', justifyContent: 'space-between' }}>
@@ -28,38 +29,40 @@ export default function HeroMission() {
                         <div className={styles.textBlockMain}>
                             We empower students through structured tutorials, mentorship, and academic programs.
                         </div>
-                        <div className={styles.textBlockSub}>
-                            Turning learning into impact since 2018.
-                        </div>
                     </div>
                     <HeroCTA />
                 </div>
 
-                {/* Back */}
-                <div
-                    style={{
-                        backfaceVisibility: "hidden",
-                        position: "absolute",
-                        inset: 0,
-                        transform: "rotateY(180deg)",
-                        backgroundColor: "#000",
-                        padding: "2rem",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        border: "1px solid #333"
-                    }}
-                >
-                    <ul style={{ listStyle: "none", color: "white", display: "flex", flexDirection: "column", gap: "1rem" }}>
-                        <li style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                            <span style={{ color: "#ff5722" }}>•</span> Peer-led tutorials
-                        </li>
-                        <li style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                            <span style={{ color: "#ff5722" }}>•</span> Faculty-backed structure
-                        </li>
-                        <li style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                            <span style={{ color: "#ff5722" }}>•</span> Campus-based programs
-                        </li>
+                {/* Back (Refined) */}
+                <div className={styles.backMission}>
+                    <ul className={styles.missionList}>
+                        <motion.li
+                            className={styles.missionItem}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: isFlipped ? 1 : 0, x: isFlipped ? 0 : -20 }}
+                            transition={{ delay: 0.1 }}
+                        >
+                            <BookOpen size={20} color="#ff5722" strokeWidth={1.5} />
+                            Peer-led tutorials
+                        </motion.li>
+                        <motion.li
+                            className={styles.missionItem}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: isFlipped ? 1 : 0, x: isFlipped ? 0 : -20 }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <Users size={20} color="#ff5722" strokeWidth={1.5} />
+                            Faculty-backed structure
+                        </motion.li>
+                        <motion.li
+                            className={styles.missionItem}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: isFlipped ? 1 : 0, x: isFlipped ? 0 : -20 }}
+                            transition={{ delay: 0.3 }}
+                        >
+                            <Trophy size={20} color="#ff5722" strokeWidth={1.5} />
+                            Campus-based programs
+                        </motion.li>
                     </ul>
                 </div>
             </motion.div>
