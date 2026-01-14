@@ -24,7 +24,6 @@ export default function HeroStats() {
             className={styles.cellBottomRight}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={() => setIsHovered(!isHovered)}
             style={{ cursor: "pointer", position: 'relative', overflow: 'hidden' }}
         >
             <motion.div

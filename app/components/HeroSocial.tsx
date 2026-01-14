@@ -12,7 +12,6 @@ export default function HeroSocial() {
             className={styles.cellMiddleRight}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={() => setIsHovered(!isHovered)}
             style={{ cursor: "pointer", position: "relative", overflow: "hidden" }}
         >
             <div style={{ width: "100%", height: "100%", position: "relative" }}>
@@ -20,8 +19,8 @@ export default function HeroSocial() {
                 <motion.div
                     animate={{ x: isHovered ? "-100%" : "0%" }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className={styles.socialProofText}
-                    style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", padding: "2rem" }}
+                    className={`${styles.socialProofText} ${styles.cardFaceFront}`}
+                    style={{ display: "flex", alignItems: "center", padding: "2rem" }}
                 >
                     <div>
                         Appointed Special Adviser on Education<br />
@@ -35,6 +34,7 @@ export default function HeroSocial() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: isHovered ? 1 : 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
+                    style={{ transform: "rotateY(0deg)" }} // Force face-forward for Fade effect
                 >
                     <div className={styles.socialQuote}>
                         "BSG helped me finally understand circuit analysis."

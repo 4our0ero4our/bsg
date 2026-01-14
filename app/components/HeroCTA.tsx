@@ -12,7 +12,6 @@ export default function HeroCTA() {
             className={styles.startButton}
             onMouseEnter={() => setIsExpanded(true)}
             onMouseLeave={() => setIsExpanded(false)}
-            onClick={(e) => { e.stopPropagation(); setIsExpanded(!isExpanded); }}
             animate={{
                 width: isExpanded ? "100%" : "fit-content",
                 backgroundColor: isExpanded ? "#ff5722" : "#ffffff",

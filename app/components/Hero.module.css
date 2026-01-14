@@ -8,6 +8,28 @@
   /* Prevent horizontal scroll only */
 }
 
+/* Layout mode switches */
+.desktopHero {
+  display: block;
+}
+
+.mobileHero {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktopHero {
+    display: none;
+  }
+
+  .mobileHero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100vh;
+  }
+}
+
 /* 
   Main Grid Container
   Columns: 3 columns. 
@@ -415,6 +437,103 @@
 }
 
 /* Responsive adjustments */
+
+/* ----------------------------- */
+/* Mobile poster-style hero      */
+/* ----------------------------- */
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 100vh;
+    background-color: #000;
+  }
+}
+
+.mobileHero {
+  position: relative;
+  width: 100%;
+  color: #fff;
+}
+
+.mobileHeroMedia {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mobileHeroImage {
+  object-fit: cover;
+}
+
+.mobileHeroImageWrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.mobileHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.85)
+  );
+  pointer-events: none;
+}
+
+.mobileHeroContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 4.5rem 1.75rem 3.5rem;
+  text-align: center;
+}
+
+.mobileEyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.75rem;
+}
+
+.mobileHeadline {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.mobileBody {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 26rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.75rem;
+}
+
+.mobileCta {
+  width: 100%;
+  max-width: 20rem;
+  min-height: 48px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff9c1a, #ff6a00);
+  color: #120b02;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+@media (min-width: 769px) {
+  .mobileHero {
+    display: none;
+  }
+}
 @media (max-width: 1024px) {
 
   /* Scale down fonts slightly instead of breaking layout */
@@ -453,39 +572,9 @@
 }
 
 @media (max-width: 768px) {
-  .heroSection {
-    height: auto;
-    min-height: 100vh;
-    /* Ensure full screen height */
-    background-image: url('/hero-featured.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    isolation: isolate;
-    /* Create new stacking context */
-  }
-
-  /* Dark Overlay for Readability */
-  .heroSection::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.85) 100%);
-    z-index: -1;
-  }
-
-  .gridContainer {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    border-left: none;
-    border-right: none;
-    position: relative;
-    z-index: 10;
-    /* Float content above background */
-  }
-
-  /* Shared Mobile Cell Styles - Editorial: Tighter, cleaner dividers */
+  /* Legacy grid mobile overrides kept only for reference.
+     The grid itself is hidden on small screens in favour of
+     the dedicated .mobileHero layout. */
   .cellTopLeft,
   .cellTopMid,
   .cellBottomBigText,
@@ -494,23 +583,12 @@
   .cellMiddleRight,
   .cellBottomRight,
   .cellFooter {
-    grid-column: auto;
-    grid-row: auto;
-    width: 100%;
-    border-right: none;
-    border-bottom: none;
-    padding: 3rem 1.5rem;
-    min-height: auto;
-    height: auto;
-    background: transparent;
-    /* Ensure background shows through */
+    /* no-op: grid hidden on mobile */
   }
 
   /* 1. Identity Block (Massive, Editorial) */
   .cellBottomBigText {
-    order: 1;
-    padding: 6rem 1.5rem 4rem 1.5rem;
-    /* Extra top padding for visually centered feel */
+    /* Padding handled above */
     justify-content: center;
     text-align: center;
   }
@@ -532,7 +610,7 @@
   }
 
   .brandSubline {
-    text-align: center;
+    text-align: left;
     font-size: 1.1rem;
     margin-top: 1.5rem;
     font-weight: 300;
@@ -541,8 +619,7 @@
 
   /* 2. Mission Text Block */
   .cellMiddleLeft {
-    order: 2;
-    padding: 4rem 1.5rem;
+    /* Padding handled above */
     align-items: center;
     text-align: center;
   }
@@ -574,16 +651,21 @@
 
   .startButton {
     width: 100%;
-    text-align: center;
-    padding: 1.25rem;
-    font-size: 1.1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     background: #fff;
     color: #000;
-    border-radius: 0;
-    /* Sharp editorial look */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    /* Slight roundness */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 1rem;
   }
 
   /* 3. Hero Image - HIDE INLINE (Background takes over) */
@@ -687,9 +769,97 @@
     width: 100%;
     margin-bottom: 0;
   }
+
+  /* Shared Back Styles Mobile Overrides */
+  .backMission,
+  .backHighlight,
+  .backStats,
+  .backIdentity,
+  .backSocial {
+    padding: 1.5rem !important;
+    /* Force tighter padding on mobile */
+  }
+
+  .missionList {
+    gap: 1rem;
+  }
+
+  .missionItem {
+    font-size: 0.95rem;
+  }
+
+  /* Highlight Back Mobile */
+  .highlightStep {
+    font-size: 1.1rem;
+  }
+
+  .highlightArrow {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+  }
+
+  /* Stats Back Mobile */
+  .backStats {
+    padding: 1rem !important;
+    gap: 0.5rem;
+    /* On mobile, Stats swaps content (removes Front), so Back MUST be relative to hold height */
+    position: relative !important;
+    inset: auto !important;
+    height: auto !important;
+    width: 100%;
+  }
+
+  .statGridNumber {
+    font-size: 1.5rem;
+  }
+
+  .statGridLabel {
+    font-size: 0.7rem;
+  }
+
+  /* CTA Back Mobile */
+  .backCTAPill {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Interactive Face Mobile Overrides - Restore Flow */
+  .cardFaceFront {
+    position: relative !important;
+    height: auto !important;
+    min-height: 320px;
+    /* Ensure volume */
+    inset: auto !important;
+    backface-visibility: hidden !important;
+  }
+
+  .cardFaceBack {
+    /* Keep absolute to overlay on top when revealed */
+    /* But typically we might want to swap valid flow? For now overlay is safer for transition */
+  }
 }
 
 /* --- Interactive Card Backs --- */
+
+/* Shared Face Logic for 3D Cards */
+.cardFaceFront,
+.cardFaceBack {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.cardFaceFront {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.cardFaceBack {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
 
 /* 1. Identity Back */
 .backIdentity {

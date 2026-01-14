@@ -7,17 +7,13 @@ import styles from "./Hero.module.css";
 export default function HeroIdentity() {
     const [isActive, setIsActive] = useState(false);
 
-    // Mobile Tap Logic: 1st tap reveals, 2nd tap interacts (if needed, otherwise just toggle)
-    const handleInteraction = () => {
-        setIsActive(!isActive);
-    };
+    // Mobile Tap Logic removed for simplicity
 
     return (
         <div
             className={styles.cellBottomBigText}
             onMouseEnter={() => setIsActive(true)}
             onMouseLeave={() => setIsActive(false)}
-            onClick={handleInteraction}
             style={{ cursor: "pointer", position: "relative", overflow: "hidden" }}
         >
             <motion.div
@@ -38,19 +34,18 @@ export default function HeroIdentity() {
             >
                 {/* Front Content (Standard) */}
                 <motion.div
+                    className={styles.cardFaceFront}
                     animate={{ opacity: isActive ? 0 : 1, y: isActive ? -20 : 0 }}
                     transition={{ duration: 0.4 }}
                     style={{
-                        position: "absolute",
-                        inset: 0,
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center"
                     }}
                 >
-                    <div className={styles.largeLogo}>Brainstorm Group</div>
-                    <div className={styles.brandSubline}>Raising the bar in academic excellence</div>
+                    <div className={styles.largeLogo}>B S G</div>
+                    <div className={styles.brandSubline}>Brainstorm Group: Raising the bar in academic excellence</div>
                 </motion.div>
 
                 {/* Back Content (Refined Charcoal Card) */}
@@ -59,6 +54,7 @@ export default function HeroIdentity() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: isActive ? 1 : 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
+                    style={{ transform: "rotateY(0deg)" }} // Force face-forward for Tilt effect
                 >
                     <div className={styles.backIdentityDivider}></div>
                     <motion.div
@@ -67,9 +63,17 @@ export default function HeroIdentity() {
                         animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
                         transition={{ delay: 0.2 }}
                     >
-                        Founded by students.<br />
-                        Built for impact.<br />
-                        Driven by excellence.
+                        <ul style={{ listStyle: "none", padding: 0, margin: 0, textAlign: "left" }}>
+                            <li style={{ marginBottom: "0.5rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                                <span style={{ color: "#ff5722", fontSize: "1.2rem" }}>•</span> 20,000+ Students Impacted
+                            </li>
+                            <li style={{ marginBottom: "0.5rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                                <span style={{ color: "#ff5722", fontSize: "1.2rem" }}>•</span> 15+ Academic Awards
+                            </li>
+                            <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                <span style={{ color: "#ff5722", fontSize: "1.2rem" }}>•</span> 6 Major Departments
+                            </li>
+                        </ul>
                     </motion.div>
                 </motion.div>
             </motion.div>

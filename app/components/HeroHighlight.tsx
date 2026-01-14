@@ -13,7 +13,6 @@ export default function HeroHighlight() {
             className={styles.cellMiddleMid}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={() => setIsHovered(!isHovered)}
             style={{ cursor: "pointer", perspective: "1000px" }}
         >
             <motion.div
@@ -25,7 +24,7 @@ export default function HeroHighlight() {
                 style={{ transformStyle: "preserve-3d", width: "100%", height: "100%", position: "relative" }}
             >
                 {/* Front */}
-                <div style={{ backfaceVisibility: "hidden", position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "inherit" }}>
+                <div className={styles.cardFaceFront} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "inherit" }}>
                     <div className={styles.logoContainer}>
                         <div className={styles.playIcon}>
                             <Play size={20} fill="white" color="white" />
@@ -43,7 +42,7 @@ export default function HeroHighlight() {
                 </div>
 
                 {/* Back (Steps) */}
-                <div className={styles.backHighlight} style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}>
+                <div className={`${styles.backHighlight} ${styles.cardFaceBack}`}>
                     <motion.div
                         className={styles.highlightStep}
                         initial={{ opacity: 0, y: -10 }}

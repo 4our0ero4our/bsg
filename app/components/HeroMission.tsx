@@ -14,7 +14,6 @@ export default function HeroMission() {
             className={styles.cellMiddleLeft}
             onMouseEnter={() => setIsFlipped(true)}
             onMouseLeave={() => setIsFlipped(false)}
-            onClick={() => setIsFlipped(!isFlipped)}
             style={{ perspective: "1000px", cursor: "pointer", height: "100%" }}
         >
             <motion.div
@@ -23,18 +22,21 @@ export default function HeroMission() {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
             >
                 {/* Front */}
-                <div style={{ backfaceVisibility: "hidden", position: "absolute", inset: 0, display: 'flex', flexDirection: 'column', padding: 'inherit', justifyContent: 'space-between' }}>
+                <div className={styles.cardFaceFront} style={{ display: 'flex', flexDirection: 'column', padding: 'inherit', gap: '1rem' }}>
                     <div className={styles.textVStack}>
                         <div className={styles.headlineSmall}>Who We Are</div>
                         <div className={styles.textBlockMain}>
                             We empower students through structured tutorials, mentorship, and academic programs.
+                        </div>
+                        <div className={styles.textBlockSub}>
+                            Turning learning into impact since 2018.
                         </div>
                     </div>
                     <HeroCTA />
                 </div>
 
                 {/* Back (Refined) */}
-                <div className={styles.backMission}>
+                <div className={`${styles.backMission} ${styles.cardFaceBack}`}>
                     <ul className={styles.missionList}>
                         <motion.li
                             className={styles.missionItem}

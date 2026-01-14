@@ -12,7 +12,6 @@ export default function HeroImage() {
             className={styles.cellTopRight}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={() => setIsHovered(!isHovered)}
             style={{ cursor: "pointer", overflow: "hidden", position: "relative" }}
         >
             <div className={styles.studentImageContainer} style={{ height: "100%", width: "100%", position: "relative" }}>
