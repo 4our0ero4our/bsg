@@ -9,7 +9,7 @@ export default function HeroCTA() {
 
     return (
         <motion.div
-            className={styles.startButton}
+            className={`${styles.startButton} ${styles.mobileHiddenCTA}`}
             onMouseEnter={() => setIsExpanded(true)}
             onMouseLeave={() => setIsExpanded(false)}
             animate={{

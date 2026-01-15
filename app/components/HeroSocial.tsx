@@ -23,8 +23,11 @@ export default function HeroSocial() {
                     style={{ display: "flex", alignItems: "center", padding: "2rem" }}
                 >
                     <div>
-                        Appointed Special Adviser on Education<br />
-                        <span className={styles.highlightText}>Student Union Government</span>
+                        <ul>
+                            <li>Appointed Special Adviser on Education by the
+                            <span className={styles.highlightText}>Student Union Government</span></li>
+                            <li>Spotlighted in the Nigerian Youths Solutions Report 2025 by<span className={styles.highlightText}>SDSN Youth Nigeria</span>.</li>
+                        </ul>
                     </div>
                 </motion.div>
 
@@ -36,11 +39,12 @@ export default function HeroSocial() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     style={{ transform: "rotateY(0deg)" }} // Force face-forward for Fade effect
                 >
-                    <div className={styles.socialQuote}>
-                        "BSG helped me finally understand circuit analysis."
-                    </div>
-                    <div className={styles.socialAuthor}>
-                        &mdash; 300L Electrical Engineering Student
+                    <div>
+                        <ul>
+                            <li>Appointed Special Adviser on Education by the
+                            <span className={styles.highlightText}>Student Union Government</span></li>
+                            <li>Spotlighted in the Nigerian Youths Solutions Report 2025 by <span className={styles.highlightText}>SDSN Youth Nigeria</span>.</li>
+                        </ul>
                     </div>
                 </motion.div>
             </div>

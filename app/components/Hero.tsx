@@ -201,9 +201,6 @@ export default function Hero() {
             We connect FUT Minna students with tutorials, mentorship, and
             focused learning communities so no one studies alone.
           </p>
-          <button className={styles.mobileCta}>
-            Explore Our Programs
-          </button>
         </div>
       </div>
     </section>

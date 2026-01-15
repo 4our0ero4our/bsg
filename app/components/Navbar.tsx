@@ -45,8 +45,11 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button - Right side */}
+          {/* CTA Buttons - Right side */}
           <div className={styles.ctaBtnContainer}>
+            <Link href="/programs" className={styles.ctaBtn}>
+              Explore Our Programs
+            </Link>
             <Link href="/contact" className={styles.ctaBtn}>
               Partner With Us
             </Link>
@@ -95,17 +98,25 @@ export default function Navbar() {
                       hidden: { opacity: 0, y: 40 },
                       visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
                     }}
-                    style={{ width: '100%' }}
+                    style={{ width: "100%" }}
                   >
                     <Link
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={link.name === "Get Involved" ? styles.mobileCtaBtn : styles.mobileItemHeader}
+                      className={styles.mobileItemHeader}
                     >
                       {link.name}
                     </Link>
                   </motion.div>
                 ))}
+                <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                  <Link href="/programs" className={styles.mobileCtaBtn} onClick={() => setMobileMenuOpen(false)}>
+                    Explore Our Programs
+                  </Link>
+                  <Link href="/contact" className={styles.mobileCtaBtn} onClick={() => setMobileMenuOpen(false)}>
+                    Partner With Us
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </>
