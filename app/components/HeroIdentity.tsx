@@ -65,13 +65,13 @@ export default function HeroIdentity() {
                     >
                         <ul style={{ listStyle: "none", padding: 0, margin: 0, textAlign: "left" }}>
                             <li style={{ marginBottom: "0.5rem", display: "flex", alignItems: "center", gap: "8px" }}>
-                                <span style={{ color: "#ff5722", fontSize: "1.2rem" }}>•</span> 20,000+ Students Impacted
+                                <span style={{ color: "var(--color-accent)", fontSize: "1.2rem" }}>•</span> 20,000+ Students Impacted
                             </li>
                             <li style={{ marginBottom: "0.5rem", display: "flex", alignItems: "center", gap: "8px" }}>
-                                <span style={{ color: "#ff5722", fontSize: "1.2rem" }}>•</span> 15+ Academic Awards
+                                <span style={{ color: "var(--color-accent)", fontSize: "1.2rem" }}>•</span> 15+ Academic Awards
                             </li>
                             <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                <span style={{ color: "#ff5722", fontSize: "1.2rem" }}>•</span> 6 Major Departments
+                                <span style={{ color: "var(--color-accent)", fontSize: "1.2rem" }}>•</span> 6 Major Departments
                             </li>
                         </ul>
                     </motion.div>

@@ -44,7 +44,7 @@ export default function HeroMission() {
                             animate={{ opacity: isFlipped ? 1 : 0, x: isFlipped ? 0 : -20 }}
                             transition={{ delay: 0.1 }}
                         >
-                            <BookOpen size={20} color="#ff5722" strokeWidth={1.5} />
+                            <BookOpen size={20} color="var(--color-accent)" strokeWidth={1.5} />
                             Peer-led tutorials
                         </motion.li>
                         <motion.li
@@ -53,7 +53,7 @@ export default function HeroMission() {
                             animate={{ opacity: isFlipped ? 1 : 0, x: isFlipped ? 0 : -20 }}
                             transition={{ delay: 0.2 }}
                         >
-                            <Users size={20} color="#ff5722" strokeWidth={1.5} />
+                            <Users size={20} color="var(--color-accent)" strokeWidth={1.5} />
                             Faculty-backed structure
                         </motion.li>
                         <motion.li
@@ -62,7 +62,7 @@ export default function HeroMission() {
                             animate={{ opacity: isFlipped ? 1 : 0, x: isFlipped ? 0 : -20 }}
                             transition={{ delay: 0.3 }}
                         >
-                            <Trophy size={20} color="#ff5722" strokeWidth={1.5} />
+                            <Trophy size={20} color="var(--color-accent)" strokeWidth={1.5} />
                             Campus-based programs
                         </motion.li>
                     </ul>

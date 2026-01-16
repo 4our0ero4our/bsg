@@ -14,7 +14,7 @@ export default function HeroCTA() {
             onMouseLeave={() => setIsExpanded(false)}
             animate={{
                 width: isExpanded ? "100%" : "fit-content",
-                backgroundColor: isExpanded ? "#ff5722" : "#ffffff",
+                backgroundColor: isExpanded ? "var(--color-accent)" : "#ffffff",
                 color: isExpanded ? "#ffffff" : "#000000",
                 borderRadius: isExpanded ? "8px" : "2px" // Slight radius on expand
             }}

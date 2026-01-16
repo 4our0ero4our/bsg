@@ -46,7 +46,7 @@ export default function HeroImage() {
                         <h3 style={{ color: "white", fontSize: "1.8rem", fontWeight: "700", fontFamily: "var(--font-montserrat)", lineHeight: 1.2 }}>
                             "Learning happens best when students teach students."
                         </h3>
-                        <div style={{ marginTop: "1.5rem", color: "#ff5722", fontWeight: 600, fontSize: "0.95rem", opacity: 0.9 }}>
+                        <div style={{ marginTop: "1.5rem", color: "var(--color-accent)", fontWeight: 600, fontSize: "0.95rem", opacity: 0.9 }}>
                             See how we run sessions &rarr;
                         </div>
                     </motion.div>

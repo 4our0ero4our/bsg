@@ -123,7 +123,7 @@
   text-transform: uppercase;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #ff5722;
+  color: var(--color-accent);
   /* Highlight color for "Who We Are" */
   letter-spacing: 1px;
 }
@@ -175,7 +175,7 @@
 .orangeBox {
   width: 100%;
   height: 100%;
-  background-color: #ff5722;
+  background-color: var(--color-accent);
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -257,7 +257,7 @@
 }
 
 .highlightText {
-  color: #ff5722;
+  color: var(--color-accent);
   font-weight: 600;
   display: block;
   /* Force new line if needed logic is handled by <br> already */
@@ -435,7 +435,7 @@
 .progressDot {
   width: 10px;
   height: 10px;
-  background-color: #ff5722;
+  background-color: var(--color-accent);
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -512,12 +512,34 @@
   text-align: center;
 }
 
+.mobileEyebrowStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.mobileEyebrowLogo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 0.4rem;
+}
+
 .mobileEyebrow {
   font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.75rem;
+}
+
+.mobileOrgName {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .mobileHeadline {
@@ -534,7 +556,6 @@
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.75rem;
 }
-
 
 @media (min-width: 769px) {
   .mobileHero {
@@ -929,7 +950,7 @@
 
 .backCTAPill:hover {
   background: white;
-  color: #ff5722;
+  color: var(--color-accent);
   transform: translateY(-2px);
 }
 
@@ -937,8 +958,8 @@
 .backHighlight {
   position: absolute;
   inset: 0;
-  background-color: #d84315;
-  /* Darker orange */
+  background-color: var(--color-accent-strong);
+  /* Darker accent */
   background-image: repeating-linear-gradient(45deg,
       transparent,
       transparent 10px,

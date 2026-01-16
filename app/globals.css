@@ -1,16 +1,24 @@
 :root {
-  /* BSG Color Palette */
-  --bsg-white: #FFFFFF;
-  --bsg-blue-light: #41B3D0;
-  --bsg-blue-medium: #2B6998;
-  --bsg-blue-dark: #18345C;
+  /* BSG Core Palette */
+  --bsg-white: #ffffff;
+  --bsg-blue-light: #41b3d0;
+  --bsg-blue-medium: #2b6998;
+  --bsg-blue-dark: #18345c;
   --bsg-blue-deep: #144269;
-  --bsg-blue-very-dark: #1F3B60;
-  --bsg-gold: #F69110;
-  --bsg-gold-deep: #FF8637;
+  --bsg-blue-very-dark: #1f3b60;
+  --bsg-gold: #f69110;
+  --bsg-gold-strong: #ff8637;
 
-  --background: var(--bsg-white);
-  --foreground: var(--bsg-blue-very-dark);
+  /* Semantic tokens */
+  --color-surface: var(--bsg-white);
+  --color-text: var(--bsg-blue-very-dark);
+  --color-primary: var(--bsg-blue-medium);
+  --color-primary-strong: var(--bsg-blue-dark);
+  --color-accent: var(--bsg-gold);
+  --color-accent-strong: var(--bsg-gold-strong);
+
+  --background: var(--color-surface);
+  --foreground: var(--color-text);
 }
 
 * {

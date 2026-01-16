@@ -97,10 +97,10 @@
 }
 
 .megaMenuLink:hover {
-  background: rgba(255, 87, 34, 0.08);
-  /* Brand orange tint */
-  color: #ff5722;
-  /* Brand Orange */
+  background: rgba(65, 179, 208, 0.08);
+  /* Light brand tint */
+  color: var(--color-accent-strong);
+  /* Brand accent */
   transform: translateX(4px);
   /* Subtle slide */
 }
@@ -136,7 +136,7 @@
 }
 
 .navLink:hover {
-  color: #ff5722;
+  color: var(--color-accent-strong);
 }
 
 .ctaBtn {
@@ -276,7 +276,7 @@
 }
 
 .mobileItemHeader:hover {
-  color: #ff5722;
+  color: var(--color-accent-strong);
   transform: translateX(5px);
   /* Animation on hover */
 }
