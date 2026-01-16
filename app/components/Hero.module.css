@@ -235,6 +235,27 @@
   line-height: 1.6;
 }
 
+.socialProofCard {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.socialProofList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.socialProofList li {
+  color: #cccccc;
+}
+
 .highlightText {
   color: #ff5722;
   font-weight: 600;
@@ -563,16 +584,7 @@
   /* Legacy grid mobile overrides kept only for reference.
      The grid itself is hidden on small screens in favour of
      the dedicated .mobileHero layout. */
-  .cellTopLeft,
-  .cellTopMid,
-  .cellBottomBigText,
-  .cellMiddleLeft,
-  .cellMiddleMid,
-  .cellMiddleRight,
-  .cellBottomRight,
-  .cellFooter {
-    /* no-op: grid hidden on mobile */
-  }
+  /* Legacy grid overrides removed. Display handled by Poster Layout above. */
 
   /* 1. Identity Block (Massive, Editorial) */
   .cellBottomBigText {
@@ -807,10 +819,7 @@
     backface-visibility: hidden !important;
   }
 
-  .cardFaceBack {
-    /* Keep absolute to overlay on top when revealed */
-    /* But typically we might want to swap valid flow? For now overlay is safer for transition */
-  }
+  /* .cardFaceBack kept absolute by default */
 }
 
 /* --- Interactive Card Backs --- */
@@ -994,13 +1003,15 @@
 .backSocial {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, #222 0%, #000 100%);
+  background: rgba(0, 0, 0, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .socialQuote {

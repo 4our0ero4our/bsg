@@ -19,13 +19,11 @@ export default function HeroSocial() {
                 <motion.div
                     animate={{ x: isHovered ? "-100%" : "0%" }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className={`${styles.socialProofText} ${styles.cardFaceFront}`}
-                    style={{ display: "flex", alignItems: "center", padding: "2rem" }}
+                    className={`${styles.socialProofText} ${styles.cardFaceFront} ${styles.socialProofCard}`}
                 >
                     <div>
-                        <ul>
-                            <li>Appointed Special Adviser on Education by the
-                            <span className={styles.highlightText}>Student Union Government</span></li>
+                        <ul className={styles.socialProofList}>
+                            <li>Appointed Special Adviser on Education by the<span className={styles.highlightText}>Student Union Government</span></li>
                             <li>Spotlighted in the Nigerian Youths Solutions Report 2025 by<span className={styles.highlightText}>SDSN Youth Nigeria</span>.</li>
                         </ul>
                     </div>
@@ -33,17 +31,16 @@ export default function HeroSocial() {
 
                 {/* Back (Vignette Quote) */}
                 <motion.div
-                    className={styles.backSocial}
+                    className={`${styles.backSocial} ${styles.cardFaceBack} ${styles.socialProofCard}`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: isHovered ? 1 : 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     style={{ transform: "rotateY(0deg)" }} // Force face-forward for Fade effect
                 >
                     <div>
-                        <ul>
-                            <li>Appointed Special Adviser on Education by the
-                            <span className={styles.highlightText}>Student Union Government</span></li>
-                            <li>Spotlighted in the Nigerian Youths Solutions Report 2025 by <span className={styles.highlightText}>SDSN Youth Nigeria</span>.</li>
+                        <ul className={styles.socialProofList}>
+                            <li>Appointed Special Adviser on Education by the<span className={styles.highlightText}>Student Union Government</span></li>
+                            <li>Spotlighted in the Nigerian Youths Solutions Report 2025 by<span className={styles.highlightText}>SDSN Youth Nigeria</span>.</li>
                         </ul>
                     </div>
                 </motion.div>

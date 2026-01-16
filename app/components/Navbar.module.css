@@ -40,6 +40,71 @@
   gap: 2rem;
 }
 
+@media (min-width: 1024px) {
+  .desktopNav {
+    align-items: center;
+  }
+}
+
+.navItem {
+  position: relative;
+}
+
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Centered X, Y handled by Motion */
+  min-width: 260px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #0b0b0b;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  z-index: 60;
+}
+
+.megaMenuTitle {
+  font-family: var(--font-montserrat);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 0.75rem;
+}
+
+.megaMenuList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.megaMenuLink {
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #0b0b0b;
+  padding: 0.5rem 0.5rem;
+  /* More breathing room */
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: block;
+  /* Ensure it takes width */
+}
+
+.megaMenuLink:hover {
+  background: rgba(255, 87, 34, 0.08);
+  /* Brand orange tint */
+  color: #ff5722;
+  /* Brand Orange */
+  transform: translateX(4px);
+  /* Subtle slide */
+}
+
 /* CTA is in the third column (Right) */
 .ctaBtnContainer {
   grid-column: 3;
@@ -71,7 +136,7 @@
 }
 
 .navLink:hover {
-  color: #ffa500;
+  color: #ff5722;
 }
 
 .ctaBtn {
@@ -169,6 +234,28 @@
   margin-top: 3rem;
 }
 
+.mobileSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.mobileSubmenu {
+  margin-left: 0.75rem;
+  padding-left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.mobileSubmenuLink {
+  font-family: var(--font-montserrat);
+  font-size: 0.85rem;
+  color: #ffffff;
+  opacity: 0.85;
+}
+
 .mobileItemHeader {
   display: flex;
   justify-content: space-between;
@@ -184,6 +271,8 @@
   text-align: left;
   transition: color 0.2s, transform 0.2s;
   font-family: var(--font-montserrat);
+  cursor: pointer;
+  /* Ensure pointer for div toggles */
 }
 
 .mobileItemHeader:hover {
