@@ -1,49 +1,70 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import Image from "next/image";
 import styles from "./Hero.module.css";
 
+const partners = [
+    { name: "FUT Minna", src: "/Federal University of Techonogy Minna Logo.jpg" },
+    { name: "SDSN Youth", src: "/MISSTYB's Foundation Logo.png" },
+    { name: "Oyins Foundation", src: "/Oyins Educational Foundation Logo.jpg" },
+    { name: "SPE", src: "/SPE International FUTMInna branch Logo.jpg" },
+    { name: "TedX", src: "/TedX Futminna logo.jpg" },
+];
+
 export default function HeroSocial() {
-    const [isHovered, setIsHovered] = useState(false);
+    // Duplicate logos to create a full grid effect (approx 12-16 items)
+    const filledPartners = [...partners, ...partners, ...partners].slice(0, 12);
 
     return (
-        <div
-            className={styles.cellMiddleRight}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            style={{ cursor: "pointer", position: "relative", overflow: "hidden" }}
-        >
-            <div style={{ width: "100%", height: "100%", position: "relative" }}>
-                {/* Front */}
-                <motion.div
-                    animate={{ x: isHovered ? "-100%" : "0%" }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className={`${styles.socialProofText} ${styles.cardFaceFront} ${styles.socialProofCard}`}
-                >
-                    <div>
-                        <ul className={styles.socialProofList}>
-                            <li>Appointed Special Adviser on Education by the<span className={styles.highlightText}>Student Union Government</span></li>
-                            <li>Spotlighted in the Nigerian Youths Solutions Report 2025 by<span className={styles.highlightText}>SDSN Youth Nigeria</span>.</li>
-                        </ul>
+        <div className={styles.cellMiddleRight}>
+            <div className={styles.socialFlipContainer}>
+                <div className={styles.socialFlipInner}>
+                    {/* Front Face */}
+                    <div className={styles.socialFlipFront}>
+                        <div className={styles.partnerGrid}>
+                            {filledPartners.map((partner, index) => (
+                                <motion.div
+                                    key={`front-${partner.name}-${index}`}
+                                    className={styles.partnerCard}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.05, duration: 0.4 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <Image
+                                        src={partner.src}
+                                        alt={partner.name}
+                                        width={64}
+                                        height={64}
+                                        className={styles.partnerLogo}
+                                    />
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </motion.div>
 
-                {/* Back (Vignette Quote) */}
-                <motion.div
-                    className={`${styles.backSocial} ${styles.cardFaceBack} ${styles.socialProofCard}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: isHovered ? 1 : 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    style={{ transform: "rotateY(0deg)" }} // Force face-forward for Fade effect
-                >
-                    <div>
-                        <ul className={styles.socialProofList}>
-                            <li>Appointed Special Adviser on Education by the<span className={styles.highlightText}>Student Union Government</span></li>
-                            <li>Spotlighted in the Nigerian Youths Solutions Report 2025 by<span className={styles.highlightText}>SDSN Youth Nigeria</span>.</li>
-                        </ul>
+                    {/* Back Face */}
+                    <div className={styles.socialFlipBack}>
+                        <div className={styles.partnerGrid}>
+                            {filledPartners.map((partner, index) => (
+                                <div
+                                    key={`back-${partner.name}-${index}`}
+                                    className={styles.partnerCard}
+                                    style={{ backgroundColor: "#f8f8f8" }} // Slight tint for back
+                                >
+                                    <Image
+                                        src={partner.src}
+                                        alt={partner.name}
+                                        width={64}
+                                        height={64}
+                                        className={styles.partnerLogo}
+                                    />
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </div>
     );

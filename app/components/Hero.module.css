@@ -264,6 +264,84 @@
   margin-top: 0.25rem;
 }
 
+/* Partners Grid Structure */
+.partnerGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+}
+
+/* 3D Flip Container for the WHOLE section */
+.socialFlipContainer {
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  background: transparent;
+}
+
+.socialFlipInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.socialFlipContainer:hover .socialFlipInner {
+  transform: rotateY(180deg);
+}
+
+.socialFlipFront,
+.socialFlipBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialFlipFront {
+  z-index: 2;
+  /* Ensure front is on top initially */
+}
+
+.socialFlipBack {
+  transform: rotateY(180deg);
+}
+
+.partnerCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.partnerCard:hover {
+  transform: translateY(-2px);
+  /* slight lift even inside flip? or maybe remove for clarity */
+}
+
+.partnerLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* --- Row 4 (Big Text) --- */
 .cellBottomBigText {
   grid-column: 1 / span 2;

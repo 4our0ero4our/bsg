@@ -89,7 +89,7 @@ const mobileSlides = [
     image: "/BSG Light Logo.jpg",
     eyebrow: "Collaboration",
     headline: "Collaboration and community",
-    body: "We collaborate with other institutions to provide students with opportunities to learn and grow together.",
+    body: "We collaborate with other institutions and communities to provide students with opportunities to learn and grow together.",
     logo: "/BSG%20Light%20Logo.jpg",
   }
 ];
