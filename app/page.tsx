@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MobilePartners from "./components/MobilePartners";
+import WhatWeDo from "./components/WhatWeDo";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <MobilePartners />
+      <WhatWeDo />
       <div className="h-screen bg-white"></div> {/* Spacer for scroll */}
     </main>
   );
