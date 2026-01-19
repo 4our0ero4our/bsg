@@ -573,9 +573,12 @@
 .mobileHeroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.85));
+  background: linear-gradient(
+    180deg,
+    rgba(24, 52, 92, 0.7) 0%,
+    rgba(0, 0, 0, 0.85) 50%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
   pointer-events: none;
 }
 
@@ -585,54 +588,65 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  padding: 4.5rem 1.75rem 3.5rem;
+  justify-content: center;
+  padding: 3rem 1.5rem 2.5rem;
   text-align: center;
+  gap: 1.5rem;
 }
 
 .mobileEyebrowStack {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .mobileEyebrowLogo {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   border-radius: 50%;
-  margin-bottom: 0.4rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border: 2px solid rgba(65, 179, 208, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .mobileEyebrow {
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
+  font-family: var(--font-montserrat);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 0.75rem;
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .mobileOrgName {
-  font-size: 3rem;
-  line-height: 1.2;
+  font-family: var(--font-montserrat);
+  font-size: 2.5rem;
+  line-height: 1.15;
   font-weight: 700;
-  margin-bottom: 1rem;
+  color: #ffffff;
+  letter-spacing: -0.01em;
 }
 
 .mobileHeadline {
-  font-size: 2rem;
-  line-height: 1.2;
+  font-family: var(--font-montserrat);
+  font-size: 1.75rem;
+  line-height: 1.3;
   font-weight: 700;
-  margin-bottom: 1rem;
+  color: #ffffff;
+  max-width: 24rem;
+  letter-spacing: -0.01em;
 }
 
 .mobileBody {
+  font-family: var(--font-inter);
   font-size: 0.95rem;
   line-height: 1.6;
-  max-width: 26rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 1.75rem;
+  max-width: 24rem;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (min-width: 769px) {
