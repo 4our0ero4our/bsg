@@ -94,7 +94,7 @@ const mobileSlides = [
   }
 ];
 
-const MOBILE_SLIDE_INTERVAL_MS = 15000;
+const MOBILE_SLIDE_INTERVAL_MS = 16000;
 
 export default function Hero() {
   const [mobileIndex, setMobileIndex] = useState(0);
