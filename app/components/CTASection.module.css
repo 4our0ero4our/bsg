@@ -1,0 +1,252 @@
+.section {
+    position: relative;
+    background-color: #0b0b0b; /* Matches previous section */
+    padding: 8rem 1.5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+  }
+  
+  /* A subtle radial gradient to draw the eye to the center */
+  .glowBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, rgba(11, 11, 11, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  .heading {
+    font-size: 3.5rem; /* Large, impactful text */
+    font-weight: 600;
+    line-height: 1.2;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Gradient text for 'better resources' */
+  .highlight {
+    background: #f69110;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: italic; /* Adds emphasis */
+  }
+  
+  /* Grid for the 3 Buttons */
+  .actionsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+  }
+  
+  .actionCard {
+    background: rgba(255, 255, 255, 0.03); /* Subtle glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Animated background gradient on hover */
+  .actionCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(65, 179, 208, 0.1), rgba(246, 145, 16, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+  }
+
+  .actionCard:hover::before {
+    opacity: 1;
+  }
+  
+  /* Hover Effects */
+  .actionCard:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(65, 179, 208, 0.5);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(65, 179, 208, 0.2);
+  }
+
+  /* Specific hover colors for each card type */
+  .cardVolunteer:hover {
+    border-color: rgba(246, 145, 16, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(246, 145, 16, 0.3);
+  }
+
+  .cardVolunteer::before {
+    background: linear-gradient(135deg, rgba(246, 145, 16, 0.15), rgba(255, 134, 55, 0.15));
+  }
+
+  .cardSponsor:hover {
+    border-color: rgba(65, 179, 208, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(65, 179, 208, 0.2);
+  }
+
+  .cardSponsor::before {
+    background: linear-gradient(135deg, rgba(43, 105, 152, 0.15), rgba(65, 179, 208, 0.15));
+  }
+  
+  .iconWrapper {
+    position: relative;
+    z-index: 1;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(65, 179, 208, 0.15), rgba(246, 145, 16, 0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .actionCard:hover .iconWrapper {
+    background: linear-gradient(135deg, rgba(65, 179, 208, 0.3), rgba(246, 145, 16, 0.3));
+    transform: scale(1.15) rotate(5deg);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(65, 179, 208, 0.3);
+  }
+
+  /* Specific icon colors for each card */
+  .cardVolunteer .iconWrapper {
+    background: linear-gradient(135deg, rgba(246, 145, 16, 0.15), rgba(255, 134, 55, 0.15));
+    color: var(--color-accent);
+  }
+
+  .cardVolunteer:hover .iconWrapper {
+    background: linear-gradient(135deg, rgba(246, 145, 16, 0.35), rgba(255, 134, 55, 0.35));
+    box-shadow: 0 8px 24px rgba(246, 145, 16, 0.4);
+  }
+
+  .cardSponsor .iconWrapper {
+    background: linear-gradient(135deg, rgba(43, 105, 152, 0.15), rgba(65, 179, 208, 0.15));
+    color: var(--bsg-blue-light);
+  }
+
+  .cardSponsor:hover .iconWrapper {
+    background: linear-gradient(135deg, rgba(43, 105, 152, 0.35), rgba(65, 179, 208, 0.35));
+    box-shadow: 0 8px 24px rgba(65, 179, 208, 0.4);
+  }
+  
+  .cardContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cardContent h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    transition: color 0.3s ease;
+  }
+
+  .actionCard:hover .cardContent h3 {
+    color: #fff;
+  }
+  
+  .arrowIcon {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-block;
+    color: var(--color-accent);
+    margin-top: 0.5rem;
+  }
+  
+  /* On hover, slide the arrow in */
+  .actionCard:hover .arrowIcon {
+    opacity: 1;
+    transform: translateX(4px);
+    color: var(--color-accent-strong);
+  }
+
+  .cardVolunteer:hover .arrowIcon,
+  .cardSponsor:hover .arrowIcon {
+    color: var(--color-accent);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .heading {
+      font-size: 2.5rem;
+    }
+    
+    .actionsGrid {
+      grid-template-columns: 1fr; /* Stack buttons vertically */
+      max-width: 400px;
+    }
+
+    .actionCard {
+      flex-direction: row; /* Horizontal layout on mobile */
+      padding: 1.5rem;
+      justify-content: flex-start;
+    }
+
+    .iconWrapper {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+    }
+
+    .iconWrapper svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .cardContent {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 1rem;
+    }
+
+    .cardContent h3 {
+      margin-bottom: 0;
+      font-size: 1.1rem;
+    }
+
+    .arrowIcon {
+      margin-top: 0;
+    }
+  }

@@ -33,14 +33,17 @@
   
   .highlight {
     font-weight: 700;
+    font-family: var(--font-montserrat);
+    font-size: 2.5rem;
   }
   
   .subtitle {
     color: #a1a1aa; /* Muted grey text */
-    font-size: 1rem;
+    font-size: 1.1rem;
     max-width: 500px;
     margin: 0 auto;
     line-height: 1.5;
+    font-family: var(--font-inter);
   }
   
   /* Carousel Layout */
