@@ -1,0 +1,205 @@
+.section {
+    background-color: #0b0b0b; /* Very dark background */
+    color: #ffffff;
+    padding: 4rem 1rem;
+    overflow: hidden; /* Prevents scrollbars when cards slide out */
+    position: relative;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  /* Header Styles */
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .highlight {
+    font-weight: 700;
+  }
+  
+  .subtitle {
+    color: #a1a1aa; /* Muted grey text */
+    font-size: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  
+  /* Carousel Layout */
+  .carouselContainer {
+    position: relative;
+    height: 400px; /* Fixed height for the card area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cardsWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Individual Card Styling */
+  .card {
+    position: absolute;
+    width: 800px; /* Wide card */
+    height: 350px;
+    background-color: #1a1a1a; /* Slightly lighter dark for card bg */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* The layout inside the card */
+  }
+  
+  .cardContent {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Left Side: Text */
+  .textContent {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .orgHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .logoPlaceholder {
+      color: #f69110;
+      font-size: 1.1rem;
+  }
+  
+  .orgName {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color:#f69110;
+  }
+  
+  .cardTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #f69110;
+  }
+  
+  .cardQuote {
+    color: #a1a1aa;
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+  }
+  
+  .authorInfo {
+    margin-top: auto;
+  }
+  
+  .authorName {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  .authorRole {
+    color: #52525b; /* Darker grey */
+    font-size: 0.9rem;
+  }
+  
+  /* Right Side: Image */
+  .imageWrapper {
+    flex: 0 0 350px; /* Fixed width for image */
+    position: relative;
+    height: 100%;
+    background-color: #27272a;
+  }
+  
+  .profileImage {
+    filter: grayscale(100%); /* Makes the image B&W */
+    transition: filter 0.3s ease;
+  }
+  
+  /* Optional: Slight color on hover if desired */
+  .card:hover .profileImage {
+    filter: grayscale(20%); 
+  }
+  
+  /* Navigation Buttons */
+  .navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .navBtn {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .navBtn:hover {
+    background-color: #333;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 900px) {
+    .card {
+      width: 90%;
+      height: auto;
+      flex-direction: column;
+    }
+    
+    .cardContent {
+      flex-direction: column-reverse; /* Image on top on mobile */
+    }
+  
+    .imageWrapper {
+      width: 100%;
+      height: 200px;
+      flex: none;
+    }
+  
+    .textContent {
+      padding: 1.5rem;
+    }
+  }
