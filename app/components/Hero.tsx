@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./Hero.module.css";
 
 // Interactive Sub-Components
@@ -98,14 +99,41 @@ const MOBILE_SLIDE_INTERVAL_MS = 16000;
 
 export default function Hero() {
   const [mobileIndex, setMobileIndex] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const id = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setMobileIndex((prev) => (prev + 1) % mobileSlides.length);
     }, MOBILE_SLIDE_INTERVAL_MS);
 
-    return () => clearInterval(id);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
   }, []);
+
+  const goToPrevious = () => {
+    setMobileIndex((prev) => (prev - 1 + mobileSlides.length) % mobileSlides.length);
+    // Reset auto-advance timer
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
+      setMobileIndex((prev) => (prev + 1) % mobileSlides.length);
+    }, MOBILE_SLIDE_INTERVAL_MS);
+  };
+
+  const goToNext = () => {
+    setMobileIndex((prev) => (prev + 1) % mobileSlides.length);
+    // Reset auto-advance timer
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
+      setMobileIndex((prev) => (prev + 1) % mobileSlides.length);
+    }, MOBILE_SLIDE_INTERVAL_MS);
+  };
 
   const slide = mobileSlides[mobileIndex];
 
@@ -247,6 +275,22 @@ export default function Hero() {
               </motion.div>
             </AnimatePresence>
           <div className={styles.mobileHeroOverlay} />
+          
+          {/* Navigation Buttons */}
+          <button
+            className={styles.mobileNavButton}
+            onClick={goToPrevious}
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            className={`${styles.mobileNavButton} ${styles.mobileNavButtonRight}`}
+            onClick={goToNext}
+            aria-label="Next slide"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
 
         <motion.div
