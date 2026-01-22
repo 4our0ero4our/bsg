@@ -95,7 +95,7 @@ export default function Footer() {
         >
           <div className={styles.newsletterContent}>
             <h2 className={styles.newsletterHeading}>
-              Keep up to date with Brainstorm Group news
+              Keep up to date with <span className={styles.brandName}>Brainstorm Group</span> news
             </h2>
             <form className={styles.newsletterForm}>
               <div className={styles.formFields}>
