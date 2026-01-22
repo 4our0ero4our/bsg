@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -41,18 +41,40 @@ const stories = [
 export default function FeaturedStories() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const visibleStories = stories.slice(currentIndex, currentIndex + 3);
-  const maxIndex = stories.length - 3;
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      
+      // Reset index if it becomes out of bounds when switching views
+      const cardsPerView = mobile ? 1 : 3;
+      const maxIndex = stories.length - cardsPerView;
+      if (currentIndex > maxIndex) {
+        setCurrentIndex(Math.max(0, maxIndex));
+      }
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, [currentIndex]);
+
+  const cardsPerView = isMobile ? 1 : 3;
+  const visibleStories = stories.slice(currentIndex, currentIndex + cardsPerView);
+  const maxIndex = stories.length - cardsPerView;
 
   const goToPrevious = () => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
+    const step = isMobile ? 1 : 3;
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : Math.max(0, prev - step)));
   };
 
   const goToNext = () => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    const step = isMobile ? 1 : 3;
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : Math.min(maxIndex, prev + step)));
   };
 
   const slideVariants = {
