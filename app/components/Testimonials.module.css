@@ -186,6 +186,27 @@
   
   /* Responsive Styles */
   @media (max-width: 900px) {
+    .section {
+      padding: 6rem 1rem;
+      min-height: auto;
+    }
+
+    .container {
+      gap: 4rem;
+    }
+
+    .header {
+      margin-bottom: 3rem;
+    }
+
+    .title {
+      margin-bottom: 1.5rem;
+    }
+
+    .subtitle {
+      margin-bottom: 1rem;
+    }
+
     .card {
       width: 90%;
       height: auto;
@@ -204,5 +225,9 @@
   
     .textContent {
       padding: 1.5rem;
+    }
+
+    .navigation {
+      margin-top: 4rem;
     }
   }

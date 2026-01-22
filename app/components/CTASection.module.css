@@ -1,7 +1,7 @@
 .section {
     position: relative;
     background-color: #0b0b0b; /* Matches previous section */
-    padding: 8rem 1.5rem;
+    padding: 1rem 1.5rem;
     overflow: hidden;
     display: flex;
     justify-content: center;
