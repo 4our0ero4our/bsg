@@ -6,6 +6,7 @@ import ImpactNumbers from "./components/ImpactNumbers";
 import FeaturedStories from "./components/FeaturedStories";
 import Testimonials from "./components/Testimonials";
 import CTASection from "./components/CTASection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <FeaturedStories />
       <Testimonials />
       <CTASection />
-      <div className="h-screen bg-white"></div> {/* Spacer for scroll */}
+      <Footer />
     </main>
   );
 }
