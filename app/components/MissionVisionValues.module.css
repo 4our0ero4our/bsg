@@ -1,0 +1,249 @@
+.section {
+    background-color: var(--bsg-white);
+    padding: 5rem 1.5rem;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 56rem;
+    /* max-w-4xl */
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+}
+
+/* Left Side Content */
+.contentSide {
+    flex: 1;
+    text-align: left;
+    position: relative;
+}
+
+/* Selection Box Header */
+.selectionBox {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 0.25rem;
+}
+
+.handle {
+    position: absolute;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: black;
+    z-index: 20;
+}
+
+/* Handle Positions */
+.tl {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.tr {
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.bl {
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+}
+
+.br {
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+}
+
+.tm {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bm {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.ml {
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.mr {
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.header {
+    font-size: 3.75rem;
+    /* text-6xl */
+    font-weight: bold;
+    color: black;
+    border: 2px solid black;
+    padding: 0.5rem 1.5rem;
+    line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+    .header {
+        font-size: 4.5rem;
+        /* text-7xl */
+    }
+}
+
+.underlineDecoration {
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    width: 75%;
+    height: 0.5rem;
+    background-color: #fca5a5;
+    /* Fallback */
+    background-color: rgb(253 224 71 / 0.8);
+    /* yellow-300 opacity-80 */
+    border-radius: 9999px;
+}
+
+.bodyText {
+    font-size: 1.25rem;
+    /* text-xl */
+    color: #4b5563;
+    /* text-gray-600 */
+    line-height: 1.625;
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 300;
+    /* font-light */
+    max-width: 32rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .bodyText {
+        font-size: 1.5rem;
+        /* text-2xl */
+    }
+}
+
+/* Bottom Info & Button */
+.bottomRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.metaInfo {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    /* text-gray-400 */
+    font-family: monospace;
+    letter-spacing: 0.1em;
+    /* tracking-widest */
+}
+
+.swipeButton {
+    background-color: #2ecc71;
+    color: black;
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.swipeButton:hover {
+    background-color: #27ae60;
+}
+
+.arrowText {
+    letter-spacing: -0.05em;
+    /* tracking-tighter */
+}
+
+/* Right Side Visual */
+.visualSide {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 400px;
+}
+
+.iconWrapper {
+    position: relative;
+}
+
+.glow {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(40px);
+    /* blur-3xl */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.icon {
+    position: relative;
+    z-index: 10;
+    color: rgba(0, 0, 0, 0.8);
+    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+}
+
+.sparkle {
+    position: absolute;
+    top: -2.5rem;
+    right: -2.5rem;
+    color: #eab308;
+    /* yellow-500 */
+    font-size: 3.75rem;
+    /* text-6xl */
+}
+
+/* Gradients for glow */
+.gradientVision {
+    background: linear-gradient(to bottom right, #facc15, #f97316);
+}
+
+.gradientMission {
+    background: linear-gradient(to bottom right, #60a5fa, #2563eb);
+}
+
+.gradientValues {
+    background: linear-gradient(to bottom right, #4ade80, #16a34a);
+}
