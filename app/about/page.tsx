@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import WhoWeAre from "../components/WhoWeAre";
 import StorySection from "../components/StorySection";
 import MissionVisionValues from "../components/MissionVisionValues";
+import LeadershipGovernance from "../components/LeadershipGovernance";
 
 export default function About() {
   return (
@@ -10,6 +11,7 @@ export default function About() {
       <WhoWeAre />
       <StorySection />
       <MissionVisionValues />
+      <LeadershipGovernance />
     </main>
   );
 }

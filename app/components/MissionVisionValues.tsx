@@ -84,8 +84,8 @@ export default function MissionVisionValues() {
                             {/* Bottom Info */}
                             <div className={styles.bottomRow}>
                                 <div className={styles.metaInfo}>
-                                    <div>VIRGO STUDIOS</div>
-                                    <div>2024</div>
+                                    <div>BRAINSTORM GROUP</div>
+                                    <div>{ new Date().getFullYear() }</div>
                                 </div>
 
                                 <button

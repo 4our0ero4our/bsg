@@ -124,10 +124,8 @@
     transform: translateX(-50%) rotate(-1deg);
     width: 75%;
     height: 0.5rem;
-    background-color: #fca5a5;
+    background-color: #f97316;
     /* Fallback */
-    background-color: rgb(253 224 71 / 0.8);
-    /* yellow-300 opacity-80 */
     border-radius: 9999px;
 }
 
@@ -168,7 +166,7 @@
 }
 
 .swipeButton {
-    background-color: #2ecc71;
+    background-color: #f97316;
     color: black;
     font-weight: bold;
     padding: 0.75rem 2rem;
