@@ -1,0 +1,151 @@
+.hero {
+  width: 100%;
+  min-height: 70vh;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 6rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(246, 145, 16, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  max-width: 800px;
+  text-align: left;
+}
+
+.title {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-size: 6rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.description {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.primaryButton,
+.secondaryButton {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.primaryButton {
+  background-color: #f69110;
+  color: #000000;
+}
+
+.primaryButton:hover {
+  background-color: #ff8637;
+  box-shadow: 0 10px 30px rgba(246, 145, 16, 0.3);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.secondaryButton:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 6rem 4rem 4rem;
+    min-height: 60vh;
+  }
+
+  .title {
+    font-size: 4.5rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 2rem 3rem;
+    min-height: 50vh;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 1.5rem 2rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+}
