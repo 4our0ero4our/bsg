@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Users, GraduationCap } from "lucide-react";
-import styles from "./ProgramsHero.module.css";
+import { Users, Heart, Target } from "lucide-react";
+import styles from "./AboutHero.module.css";
 
-export default function ProgramsHero() {
+export default function AboutHero() {
   return (
     <section className={styles.hero}>
       <div className={styles.backgroundEffects}>
@@ -25,13 +25,13 @@ export default function ProgramsHero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className={styles.badge}
           >
-            <BookOpen size={16} />
-            <span>Our Programs</span>
+            <Users size={16} />
+            <span>About Us</span>
           </motion.div>
           
           <h1 className={styles.title}>
-            <span className={styles.titleLine1}>WHAT WE</span>
-            <span className={styles.titleLine2}>DO</span>
+            <span className={styles.titleLine1}>WHO WE</span>
+            <span className={styles.titleLine2}>ARE</span>
           </h1>
           
           <motion.div
@@ -41,9 +41,10 @@ export default function ProgramsHero() {
             className={styles.descriptionWrapper}
           >
             <p className={styles.description}>
-              Empowering students through innovative programs designed to bridge the gap between 
-              classroom learning and academic excellence. Each program is crafted to provide 
-              comprehensive support, mentorship, and opportunities for growth.
+              Brainstorm Group (BSG) is a student-led academic and mentorship organization 
+              founded to bridge the gap between classroom learning and academic excellence. 
+              Through innovative programs, dedicated mentorship, and a commitment to student 
+              success, we empower learners to reach their full potential.
             </p>
           </motion.div>
 
@@ -54,26 +55,26 @@ export default function ProgramsHero() {
             className={styles.stats}
           >
             <div className={styles.statItem}>
-              <GraduationCap size={20} className={styles.statIcon} />
-              <div className={styles.statContent}>
-                <div className={styles.statValue}>5</div>
-                <div className={styles.statLabel}>Programs</div>
-              </div>
-            </div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statItem}>
               <Users size={20} className={styles.statIcon} />
               <div className={styles.statContent}>
-                <div className={styles.statValue}>500+</div>
-                <div className={styles.statLabel}>Students Served</div>
+                <div className={styles.statValue}>2018</div>
+                <div className={styles.statLabel}>Founded</div>
               </div>
             </div>
             <div className={styles.statDivider}></div>
             <div className={styles.statItem}>
-              <BookOpen size={20} className={styles.statIcon} />
+              <Heart size={20} className={styles.statIcon} />
               <div className={styles.statContent}>
-                <div className={styles.statValue}>15+</div>
-                <div className={styles.statLabel}>Courses Covered</div>
+                <div className={styles.statValue}>500+</div>
+                <div className={styles.statLabel}>Students Impacted</div>
+              </div>
+            </div>
+            <div className={styles.statDivider}></div>
+            <div className={styles.statItem}>
+              <Target size={20} className={styles.statIcon} />
+              <div className={styles.statContent}>
+                <div className={styles.statValue}>5</div>
+                <div className={styles.statLabel}>Core Programs</div>
               </div>
             </div>
           </motion.div>
