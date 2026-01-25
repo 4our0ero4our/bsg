@@ -1,24 +1,80 @@
 .hero {
   width: 100%;
-  min-height: 50vh;
+  min-height: 85vh;
   background-color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 6rem 4rem;
+  padding: 10rem 6rem 6rem;
   position: relative;
   overflow: hidden;
 }
 
-.hero::before {
-  content: "";
+.backgroundEffects {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(246, 145, 16, 0.05) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
+}
+
+.glow1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(246, 145, 16, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -200px;
+  right: -200px;
+  filter: blur(80px);
+  animation: float 8s ease-in-out infinite;
+}
+
+.glow2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(46, 123, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  bottom: -150px;
+  left: -150px;
+  filter: blur(60px);
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.glow3 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(100px);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
 }
 
 .container {
@@ -30,74 +86,212 @@
 }
 
 .content {
-  max-width: 900px;
+  max-width: 1000px;
   text-align: center;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background-color: rgba(246, 145, 16, 0.1);
+  border: 1px solid rgba(246, 145, 16, 0.2);
+  border-radius: 50px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #f69110;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .title {
   font-family: var(--font-montserrat), system-ui, sans-serif;
-  font-size: 5.5rem;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.titleLine1 {
+  font-size: 6rem;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+.titleLine2 {
+  font-size: 6rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 145, 16, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.descriptionWrapper {
+  margin-bottom: 4rem;
+}
+
 .description {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 700px;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 750px;
   margin: 0 auto;
+  font-weight: 300;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.statIcon {
+  color: #f69110;
+  flex-shrink: 0;
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statValue {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statDivider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero {
-    padding: 6rem 4rem 3rem;
-    min-height: 40vh;
+    padding: 8rem 4rem 4rem;
+    min-height: 75vh;
   }
 
-  .title {
-    font-size: 4rem;
+  .titleLine1,
+  .titleLine2 {
+    font-size: 4.5rem;
   }
 
   .description {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
+  }
+
+  .stats {
+    gap: 2rem;
+  }
+
+  .statValue {
+    font-size: 1.75rem;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 5rem 2rem 2rem;
-    min-height: 35vh;
+    padding: 6rem 2rem 3rem;
+    min-height: 70vh;
   }
 
-  .title {
-    font-size: 3rem;
+  .titleLine1,
+  .titleLine2 {
+    font-size: 3.5rem;
   }
 
   .description {
-    font-size: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .statDivider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+  }
+
+  .statItem {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .statValue {
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 4rem 1.5rem 2rem;
+    padding: 5rem 1.5rem 2rem;
+    min-height: 65vh;
   }
 
-  .title {
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .titleLine1,
+  .titleLine2 {
     font-size: 2.5rem;
   }
 
   .description {
-    font-size: 0.95rem;
+    font-size: 1rem;
+  }
+
+  .stats {
+    gap: 1.5rem;
+  }
+
+  .statValue {
+    font-size: 1.25rem;
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
   }
 }
