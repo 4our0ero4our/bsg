@@ -29,7 +29,7 @@ const governanceItems: GovernanceItem[] = [
 
 export default function LeadershipGovernance() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="leadership">
       <div className={styles.container}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

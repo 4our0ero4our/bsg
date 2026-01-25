@@ -39,7 +39,7 @@ export default function MissionVisionValues() {
     const currentSlide = slides[currentIndex];
 
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="mission">
             <div className={styles.container}>
 
                 {/* Left Side: Content */}

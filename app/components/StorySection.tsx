@@ -209,7 +209,7 @@ export default function StorySection() {
   };
 
   return (
-    <section className={styles.storySection}>
+    <section className={styles.storySection} id="story">
       <div className={styles.contentWrapper}>
         {/* Left side - Image Collage */}
         <div className={styles.imageContainer}>
