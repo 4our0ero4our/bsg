@@ -1,0 +1,162 @@
+.section {
+  width: 100%;
+  background-color: #000000;
+  padding: 4rem 6rem 10rem;
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sectionWrapper {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionHeader {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 2.5rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.sectionHeader:hover {
+  padding-left: 1rem;
+}
+
+.sectionHeader.expanded {
+  padding-bottom: 1.5rem;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.iconWrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(246, 145, 16, 0.15), rgba(246, 145, 16, 0.05));
+  border: 1px solid rgba(246, 145, 16, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f69110;
+  flex-shrink: 0;
+}
+
+.headerText {
+  flex: 1;
+}
+
+.sectionTitle {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.sectionDescription {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.chevron {
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+.chevron.rotated {
+  transform: rotate(180deg);
+  color: #f69110;
+}
+
+.expandedContent {
+  overflow: hidden;
+  padding-bottom: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .section {
+    padding: 3rem 4rem 8rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .headerLeft {
+    gap: 1.5rem;
+  }
+
+  .iconWrapper {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 2rem 6rem;
+  }
+
+  .sectionHeader {
+    padding: 2rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .sectionDescription {
+    font-size: 0.95rem;
+  }
+
+  .headerLeft {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .chevron {
+    align-self: flex-end;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 2rem 1.5rem 5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+  }
+}

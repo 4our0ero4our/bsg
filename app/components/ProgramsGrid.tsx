@@ -8,7 +8,6 @@ import {
   Users,
   UserPlus,
   HeartHandshake,
-  X,
   MapPin,
   Monitor,
   Users2,
@@ -235,7 +234,7 @@ export default function ProgramsGrid() {
 
   return (
     <>
-      <section className={styles.section}>
+      <section className={styles.section} id="bsgprograms">
         <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -254,7 +253,7 @@ export default function ProgramsGrid() {
           <div className={styles.grid}>
             {programs.map((program, index) => {
               const IconComponent = program.icon;
-              const modeIcon = program.mode === "Physical" ? MapPin : program.mode === "Virtual" ? Monitor : MapPin;
+              const ModeIcon = program.mode === "Physical" ? MapPin : program.mode === "Virtual" ? Monitor : MapPin;
 
               return (
                 <motion.div
@@ -271,7 +270,7 @@ export default function ProgramsGrid() {
                       <IconComponent size={24} strokeWidth={1.5} />
                     </div>
                     <div className={styles.modeBadge}>
-                      <modeIcon size={12} />
+                      <ModeIcon size={12} />
                       <span>{program.mode}</span>
                     </div>
                   </div>
